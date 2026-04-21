@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nawal Sarwar × Avenue Z - A Case for Influence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f2ec;
+    --red: #E63329;
+    --gold: #C9A84C;
+    --mid: #1a1a1a;
+    --steel: #2e2e2e;
+    --fog: #8a8a8a;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+  header {
+    position: relative; height: 100vh; min-height: 680px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 60px 60px; overflow: hidden;
+  }
+  .header-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1c1008 40%, #0a0a0a 100%);
+  }
+  .header-bg::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(201,168,76,0.04) 60px),
+                repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(201,168,76,0.04) 60px);
+  }
+  .big-z {
+    position: absolute; top: -60px; right: -40px;
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(300px, 40vw, 600px);
+    color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.12);
+    line-height: 1; pointer-events: none; user-select: none;
+  }
+  .header-eyebrow {
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px; position: relative;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .header-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+  .header-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 10vw, 140px); line-height: 0.9; position: relative; }
+  .header-title .name { display: block; color: var(--white); }
+  .header-title .tagline { display: block; color: var(--red); }
+  .header-subtitle { margin-top: 28px; font-size: 14px; letter-spacing: 0.08em; color: var(--fog); max-width: 500px; line-height: 1.8; position: relative; }
+  .scroll-hint { position: absolute; bottom: 60px; right: 60px; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--fog); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; }
+  .scroll-hint::after { content: ''; width: 1px; height: 60px; background: linear-gradient(to bottom, var(--fog), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+  .section-label { font-size: 10px; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+
+  .cover-letter { padding: 100px 60px; max-width: 900px; margin: 0 auto; border-top: 1px solid rgba(201,168,76,0.15); }
+  .cl-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 60px; gap: 40px; flex-wrap: wrap; }
+  .cl-from { font-size: 11px; letter-spacing: 0.08em; color: var(--fog); line-height: 2; }
+  .cl-from strong { display: block; font-size: 14px; color: var(--white); font-weight: 500; margin-bottom: 4px; }
+  .cl-to { text-align: right; font-size: 11px; letter-spacing: 0.08em; color: var(--fog); line-height: 2; }
+  .letter-heading { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 5vw, 56px); font-style: italic; line-height: 1.2; color: var(--white); margin-bottom: 40px; }
+  .letter-heading span { color: var(--red); }
+  .letter-body p { font-size: 15px; line-height: 1.85; color: #c8c4bc; margin-bottom: 24px; }
+  .highlight-line { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 20px; color: var(--white); border-left: 3px solid var(--red); padding-left: 20px; margin: 36px 0; line-height: 1.5; }
+  .letter-sign { margin-top: 48px; display: flex; flex-direction: column; gap: 6px; }
+  .sig-name { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 0.04em; color: var(--white); }
+  .sig-title { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
+
+  .pillars { padding: 80px 60px; background: var(--mid); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .pillars-heading { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 6vw, 80px); line-height: 0.9; margin-bottom: 60px; }
+  .pillars-heading em { font-style: normal; color: var(--red); }
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; }
+  .pillar-card { background: var(--steel); padding: 40px 32px; position: relative; overflow: hidden; transition: transform 0.3s ease; }
+  .pillar-card:hover { transform: translateY(-4px); }
+  .pillar-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: var(--red); transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left; }
+  .pillar-card:hover::before { transform: scaleX(1); }
+  .pillar-num { font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: rgba(201,168,76,0.12); line-height: 1; margin-bottom: 12px; }
+  .pillar-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--white); margin-bottom: 10px; }
+  .pillar-desc { font-size: 13px; color: var(--fog); line-height: 1.7; }
+
+  .skills-section { padding: 100px 60px; }
+  .skills-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 60px; align-items: start; }
+  .skills-heading { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 80px); line-height: 0.9; }
+  .skills-text { padding-top: 12px; font-size: 14px; line-height: 1.85; color: #c8c4bc; }
+  .skills-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 16px; border: 1px solid rgba(201,168,76,0.3); color: var(--gold); transition: all 0.2s ease; cursor: default; }
+  .tag:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+  .tag.red { border-color: rgba(230,51,41,0.4); color: var(--red); }
+  .tag.red:hover { background: var(--red); color: var(--white); border-color: var(--red); }
+
+  .case-studies { padding: 100px 60px; background: var(--mid); border-top: 1px solid rgba(201,168,76,0.1); }
+  .cs-heading-row { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; gap: 20px; flex-wrap: wrap; }
+  .cs-heading { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 80px); line-height: 0.9; }
+  .cs-subhead { font-size: 13px; color: var(--fog); max-width: 320px; text-align: right; line-height: 1.7; }
+  .cs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
+  .cs-card { background: var(--steel); padding: 40px; cursor: pointer; position: relative; overflow: hidden; transition: background 0.3s ease; }
+  .cs-card:hover { background: #3a3a3a; }
+  .cs-card::after { content: 'CLICK TO READ MORE \2192'; position: absolute; bottom: 20px; right: 24px; font-size: 10px; letter-spacing: 0.25em; color: var(--red); opacity: 0; transform: translateX(-8px); transition: all 0.3s ease; }
+  .cs-card:hover::after { opacity: 1; transform: translateX(0); }
+  .cs-category { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .cs-client { font-family: 'Bebas Neue', sans-serif; font-size: 36px; line-height: 1; color: var(--white); margin-bottom: 12px; }
+  .cs-brief { font-size: 13px; color: var(--fog); line-height: 1.7; margin-bottom: 24px; }
+  .cs-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+  .cs-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--red); line-height: 1; }
+  .cs-stat-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fog); margin-top: 2px; }
+
+  .bring-section { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .bring-left { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 48px); font-style: italic; line-height: 1.3; color: var(--white); }
+  .bring-left span { color: var(--gold); }
+  .bring-right { display: flex; flex-direction: column; gap: 24px; }
+  .bring-item { border-left: 2px solid rgba(201,168,76,0.2); padding-left: 20px; transition: border-color 0.3s ease; }
+  .bring-item:hover { border-left-color: var(--red); }
+  .bring-item-title { font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 6px; letter-spacing: 0.05em; }
+  .bring-item-desc { font-size: 12px; color: var(--fog); line-height: 1.7; }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 1000; align-items: center; justify-content: center; padding: 40px 20px; backdrop-filter: blur(8px); }
+  .modal-overlay.active { display: flex; }
+  .modal { background: var(--mid); max-width: 780px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border: 1px solid rgba(201,168,76,0.15); animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  @keyframes modalIn { from { opacity: 0; transform: translateY(24px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  .modal-close { position: sticky; top: 0; display: flex; justify-content: flex-end; padding: 20px 24px; background: var(--mid); border-bottom: 1px solid rgba(201,168,76,0.1); z-index: 10; }
+  .modal-close button { background: none; border: 1px solid rgba(255,255,255,0.2); color: var(--white); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; padding: 8px 20px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s ease; }
+  .modal-close button:hover { background: var(--red); border-color: var(--red); }
+  .modal-body { padding: 50px 50px 60px; }
+  .modal-eyebrow { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .modal-client-name { font-family: 'Bebas Neue', sans-serif; font-size: 64px; line-height: 0.9; color: var(--white); margin-bottom: 8px; }
+  .modal-tagline { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 20px; color: var(--fog); margin-bottom: 40px; }
+  .modal-stats-row { display: flex; gap: 48px; margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; }
+  .modal-stat-big { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: var(--red); line-height: 1; }
+  .modal-stat-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fog); margin-top: 4px; max-width: 120px; }
+  .modal-section-title { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; margin-top: 32px; }
+  .modal-text { font-size: 14px; color: #c8c4bc; line-height: 1.85; }
+  .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+  .modal-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 6px 14px; border: 1px solid rgba(230,51,41,0.35); color: var(--red); }
+
+  footer { padding: 60px; border-top: 1px solid rgba(201,168,76,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.05em; }
+  .footer-links { display: flex; gap: 32px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .footer-links a { color: var(--fog); text-decoration: none; transition: color 0.2s ease; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-note { font-size: 11px; color: rgba(138,138,138,0.4); }
+
+  @media (max-width: 768px) {
+    header, .cover-letter, .pillars, .skills-section, .case-studies, .bring-section { padding-left: 28px; padding-right: 28px; }
+    .skills-intro, .bring-section { grid-template-columns: 1fr; gap: 40px; }
+    .cs-subhead { text-align: left; }
+    footer { padding: 40px 28px; }
+    .modal-body { padding: 32px 28px 48px; }
+    .modal-client-name { font-size: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-bg"></div>
+  <div class="big-z">Z</div>
+  <div style="position:relative">
+    <div class="header-eyebrow">Application for Marketing Analytics</div>
+    <h1 class="header-title">
+      <span class="name">Nawal Sarwar</span>
+      <span class="tagline">Engineered to Influence.</span>
+    </h1>
+    <p class="header-subtitle">Data analyst &middot; Creative strategist &middot; The person who reads the case studies before writing the cover letter.</p>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<section class="cover-letter" id="cover-letter">
+  <div class="cl-header">
+    <div class="cl-from">
+      <strong>Nawal Sarwar</strong>
+      New York, NY<br>
+      <a href="https://ns5504.github.io/NS_Portfolio/" style="color: var(--gold); text-decoration: none;">Portfolio</a><br>
+      Available immediately
+    </div>
+    <div class="cl-to">
+      Avenue Z<br>
+      Hiring Team<br>
+      New York / Miami<br>
+      <span style="color:var(--gold)">Forbes Best Startup Employer 2026</span>
+    </div>
+  </div>
+  <div class="section-label">Cover Letter</div>
+  <h2 class="letter-heading">
+    I don't want to work<br>at a <span>media company.</span><br>I want to work at the one<br>that makes the others obsolete.
+  </h2>
+  <div class="letter-body">
+    <p>Avenue Z doesn't describe itself as a PR firm that "dabbles" in digital, or an agency that's "exploring AI." It calls itself an AI-first company engineered to drive influence: and the receipts are all over your case studies. 287% traffic lifts, 600 media mentions in 72 hours, Klora reaching category leadership through editorial placement, and Better.com repairing a fractured reputation in under 90 days. I went deep on all of it before writing this.</p>
+
+<div class="highlight-line">"I am the person who builds the tool, analyzes the output, and tells the story behind the numbers | all before the morning standup."</div>
+
+<p>My background is a direct match for the way Avenue Z is wired. I spent a year at Brookhaven National Laboratory doing large-scale SQL and Python validation on datasets that couldn't afford to be wrong. I built a Reddit Sentiment Classifier using transformer models | BERT, RoBERTa, and GPT-based architectures | before NLP was a buzzword on every agency deck. I also designed the full UI/UX for a logistics platform at SkyIT, because I believe data without clarity is just noise.</p>
+
+<p>I also built <strong>Horizon Retail</strong>: an AI-powered fashion trend intelligence app that synthesizes social signals, search velocity, and editorial coverage into brand-ready forecasts. It is the kind of product Avenue Z's clients would actually pay for. That's not a coincidence; it is how I think. I study the space I want to work in before I ask for a seat at the table.</p>
+
+<p>What you'll get: someone who can pull the analytics, read the earned media landscape, brief the creative, pressure-test the strategy, and present it in a room. I’m day-one ready and long-term hungry to build real-world influence at a company doing the work that matters. That company is Avenue Z.</p>
+
+<p>Let's drive revenue and reputation together.</p>
+  </div>
+  <div class="letter-sign">
+    <div class="sig-name">Nawal Sarwar</div>
+    <div class="sig-title">Data Analyst &middot; Marketing Analytics &middot; Available Now</div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="section-label">Why The Fit Is Real</div>
+  <div class="pillars-heading">Your Pillars.<br><em>My Proof.</em></div>
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-num">01</div>
+      <div class="pillar-title">Earned Media Intelligence</div>
+      <div class="pillar-desc">I reverse-engineered the Better.com and VoyceMe case studies to understand how narrative sequencing drives tier-one placements. That's how I think about PR analytics &mdash; as a signal, not a vanity metric.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">02</div>
+      <div class="pillar-title">Performance + Data</div>
+      <div class="pillar-desc">Brookhaven SQL pipelines. Python validation at scale. Transformer-based NLP models. I've worked on data that had to be right &mdash; not just directionally interesting.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">AI-First Thinking</div>
+      <div class="pillar-desc">Built Vogue Futures, an AI trend intelligence tool, from scratch &mdash; API integration, custom data viz, resilient JSON parsing. I don't wait for the AI team. I am the AI team.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">04</div>
+      <div class="pillar-title">Creative Discipline</div>
+      <div class="pillar-desc">Visual Arts minor. UI/UX design at SkyIT. I make dashboards and decks that people actually want to look at &mdash; because if the insight doesn't land visually, it doesn't land at all.</div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <div class="skills-intro">
+    <div>
+      <div class="section-label">Toolkit</div>
+      <div class="skills-heading">The Stack<br>Behind<br>The Work.</div>
+    </div>
+    <div class="skills-text">
+      Avenue Z runs on the convergence of AI, search, media, and performance creative. Here's where I operate across that stack &mdash; and where I'm actively building depth.
+    </div>
+  </div>
+  <div class="skills-tags">
+    <span class="tag">Python</span>
+    <span class="tag">SQL (Advanced)</span>
+    <span class="tag">NLP / Transformers</span>
+    <span class="tag">GA4</span>
+    <span class="tag">Looker Studio</span>
+    <span class="tag">Figma / UI-UX</span>
+    <span class="tag">React</span>
+    <span class="tag">Data Visualization</span>
+    <span class="tag red">AEO / AI Search</span>
+    <span class="tag red">Trend Intelligence</span>
+    <span class="tag red">Content Analytics</span>
+    <span class="tag red">Brand Strategy</span>
+    <span class="tag red">Earned Media Analysis</span>
+    <span class="tag red">Performance Reporting</span>
+  </div>
+</section>
+
+<section class="case-studies" id="case-studies">
+  <div class="cs-heading-row">
+    <div>
+      <div class="section-label">Avenue Z x The Work</div>
+      <div class="cs-heading">Results That<br>Speak Fluently.</div>
+    </div>
+    <div class="cs-subhead">Avenue Z's own case studies &mdash; analyzed through the lens of how I'd contribute to results like these. Click any card.</div>
+  </div>
+  <div class="cs-grid">
+    <div class="cs-card" onclick="openModal('better')">
+      <div class="cs-category">Fintech &middot; PR &middot; Reputation</div>
+      <div class="cs-client">Better.com</div>
+      <div class="cs-brief">Rebuilt a fractured brand narrative after a very public crisis. Launched Equity Unlocker into top-tier business press. Turned a comeback into category authority.</div>
+      <div class="cs-stats">
+        <div><div class="cs-stat-num">600+</div><div class="cs-stat-label">Media mentions in 72 hours</div></div>
+        <div><div class="cs-stat-num">30+</div><div class="cs-stat-label">WSJ, Fortune, Fox Business hits</div></div>
+      </div>
+    </div>
+    <div class="cs-card" onclick="openModal('klora')">
+      <div class="cs-category">DTC &middot; Performance Media &middot; UGC</div>
+      <div class="cs-client">Klora</div>
+      <div class="cs-brief">Took a wellness brand from launch to category comparison status through editorial advertorial strategy and UGC creator content on owned publisher sites.</div>
+      <div class="cs-stats">
+        <div><div class="cs-stat-num">CPM↓</div><div class="cs-stat-label">Reduced ad fatigue and cost</div></div>
+        <div><div class="cs-stat-num">CTR↑</div><div class="cs-stat-label">Outperformed original strategy</div></div>
+      </div>
+    </div>
+    <div class="cs-card" onclick="openModal('voguefutures')">
+      <div class="cs-category">Nawal's Work &middot; Fashion Tech &middot; AI</div>
+      <div class="cs-client">Horizon Retail</div>
+      <div class="cs-brief">My own portfolio piece: an AI-powered fashion trend intelligence app &mdash; the kind of data product an Avenue Z luxury or DTC client would actually deploy.</div>
+      <div class="cs-stats">
+        <div><div class="cs-stat-num">5</div><div class="cs-stat-label">Live analytics modules</div></div>
+        <div><div class="cs-stat-num">AI</div><div class="cs-stat-label">Trend synthesis engine</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bring-section">
+  <div class="bring-left">
+    "Data that <span>drives decisions.</span><br>Stories that <span>earn coverage.</span><br>Systems that <span>scale both.</span>"
+  </div>
+  <div class="bring-right">
+    <div class="bring-item">
+      <div class="bring-item-title">Analytical Rigor Without the Ivory Tower</div>
+      <div class="bring-item-desc">GPA 3.9. Brookhaven-grade data validation. Transformer model research. I've done the hard technical work &mdash; now I want to apply it where it moves business outcomes.</div>
+    </div>
+    <div class="bring-item">
+      <div class="bring-item-title">Cross-Channel Thinking Is Native</div>
+      <div class="bring-item-desc">From TikTok signal analysis to editorial SEO to AI search optimization &mdash; I understand how channels connect because I built tools that span all of them.</div>
+    </div>
+    <div class="bring-item">
+      <div class="bring-item-title">Creative + Technical, Not One or the Other</div>
+      <div class="bring-item-desc">Visual Arts minor. UI/UX design background. I sit at the intersection of data and story &mdash; which is exactly where Avenue Z operates.</div>
+    </div>
+    <div class="bring-item">
+      <div class="bring-item-title">Day-One Ready, Long-Term Hungry</div>
+      <div class="bring-item-desc">I deferred a grad school seat to do this right. Not testing the waters &mdash; here to build influence, at scale, with a team that takes the work seriously.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Nawal Sarwar</div>
+  <div class="footer-links">
+    <a href="https://ns5504.github.io/NS_Portfolio/" target="_blank">Portfolio</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+  </div>
+  <div class="footer-note">Built intentionally for Avenue Z &middot; 2026</div>
+</footer>
+
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal-content">
+    <div class="modal-close"><button onclick="closeModal()">&#x2715; Close</button></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const caseStudies = {
+  better: {
+    category: 'Fintech · PR · Reputation Rebuild',
+    client: 'Better.com',
+    tagline: 'From crisis to category authority in under 90 days.',
+    stats: [
+      { num: '600+', label: 'Media mentions in 72 hours' },
+      { num: '30+', label: 'Articles in WSJ, Fortune, Fox Business' },
+      { num: '5', label: 'Broadcast appearances on CNBC + Fox' }
+    ],
+    challenge: 'Better.com faced one of the highest-profile reputational crises in fintech history. Public layoffs via Zoom, regulatory scrutiny, and a fractured consumer trust narrative created a near-impossible brief: rebuild credibility while executing one of the most scrutinized IPOs in the mortgage sector.',
+    approach: 'Avenue Z engineered a milestone-driven PR sequencing strategy. Rather than issuing blanket brand rehabilitation content, the team identified tangible product innovations — the One Day Mortgage and Equity Unlocker — as credibility anchors. Each launch was timed to specific media cycles and pitched with journalist-specific angles. Earned media was layered with broadcast placements to compound reach and signal legitimacy to financial institutions and retail investors simultaneously.',
+    result: 'Over 20 articles in top-tier financial press within three months. The IPO media rollout generated more than 20 pieces of positive coverage. The Equity Unlocker product was featured in The Wall Street Journal within days of launch — widely seen as a reputational turning point.',
+    services: ['PR & Media Relations', 'IPO Communications', 'Crisis Strategy', 'Thought Leadership', 'Broadcast Placement']
+  },
+  klora: {
+    category: 'DTC · Performance Media · UGC Strategy',
+    client: 'Klora',
+    tagline: 'From launch to category comparison — through content that earns, not interrupts.',
+    stats: [
+      { num: 'CPM↓', label: 'Reduced ad fatigue and acquisition cost' },
+      { num: 'CTR↑', label: 'Outperformed original creative strategy' },
+      { num: '#1', label: 'Category association with leading supplement brands' }
+    ],
+    challenge: 'Klora launched into a saturated wellness supplement market with strong product fundamentals but no brand equity. The challenge: build consumer trust and purchase intent at scale without the media budget of established incumbents, and do it through channels that would not burn out fast.',
+    approach: 'Avenue Z hosted advertorial content on its own publisher network - The Daily Post - rather than Klora\'s owned site. This editorial framing reduced ad perception while dramatically lowering CPMs. UGC creators were matched to produce content tonally consistent with the editorial environment. "Top 5" comparison articles positioned Klora alongside established supplement brands, borrowing category credibility through association. Limited-time offers embedded at article endings created urgency without hard-sell tactics.',
+    result: 'Klora emerged as a recognizable name in a category it entered with zero brand recognition. Ad fatigue decreased, click-through rates increased significantly over baseline, and readers began associating Klora with supplement category leaders — the strategic goal from week one.',
+    services: ['Performance Media', 'UGC Creator Strategy', 'Advertorial Content', 'Audience Development', 'Conversion Optimization']
+  },
+  voguefutures: {
+    category: 'Portfolio Work · Fashion Tech · AI Analytics',
+    client: 'Vogue Futures',
+    tagline: 'An AI trend intelligence platform — built as proof, not a pitch.',
+    stats: [
+      { num: '5', label: 'Live analytics modules' },
+      { num: 'AI', label: 'Powered trend synthesis engine' },
+      { num: '100%', label: 'Built from scratch, zero templates' }
+    ],
+    challenge: 'I wanted to demonstrate that I could build the kind of product Avenue Z\'s fashion tech and luxury clients would actually need — not just describe it in a deck. Brief I set for myself: create an AI-powered tool that synthesizes social signals, search velocity, and editorial data into brand-ready trend forecasts.',
+    approach: 'Built as a full React application with five data tabs covering trend velocity, social signal analysis, editorial coverage mapping, brand positioning matrices, and seasonal forecasting. Custom SVG charts replaced third-party libraries to ensure render performance. A resilient JSON extraction function handles variable API response formats. The entire tool is portfolio-ready and demonstrates the full stack: data ingestion → analysis → visual communication.',
+    result: 'Vogue Futures sits as the anchor project in my portfolio — and it\'s the most direct demonstration of how I think: identify a market need, build the intelligence layer, make the output beautiful enough to trust. It\'s the kind of internal tool Avenue Z could deploy for a luxury DTC client in a single sprint.',
+    services: ['AI / ML Integration', 'Data Visualization', 'React Development', 'Fashion Tech Strategy', 'Trend Analytics']
+  }
+};
+
+function openModal(id) {
+  const cs = caseStudies[id];
+  if (!cs) return;
+  const statsHTML = cs.stats.map(s => `<div><div class="modal-stat-big">${s.num}</div><div class="modal-stat-label">${s.label}</div></div>`).join('');
+  const tagsHTML = cs.services.map(s => `<span class="modal-tag">${s}</span>`).join('');
+  document.getElementById('modal-body').innerHTML = `
+    <div class="modal-eyebrow">${cs.category}</div>
+    <div class="modal-client-name">${cs.client}</div>
+    <div class="modal-tagline">${cs.tagline}</div>
+    <div class="modal-stats-row">${statsHTML}</div>
+    <div class="modal-section-title">The Challenge</div>
+    <div class="modal-text">${cs.challenge}</div>
+    <div class="modal-section-title">The Approach</div>
+    <div class="modal-text">${cs.approach}</div>
+    <div class="modal-section-title">The Result</div>
+    <div class="modal-text">${cs.result}</div>
+    <div class="modal-tags">${tagsHTML}</div>
+  `;
+  document.getElementById('modal-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
